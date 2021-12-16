@@ -104,6 +104,15 @@ describe Que::Migrations do
   end
 
   describe "migration #4" do
+    before do
+      Que::Migrations.migrate!(version: 4)
+    end
+
+    after do
+      DB[:que_jobs].delete
+      Que::Migrations.migrate!(version: Que::Migrations::CURRENT_VERSION)
+    end
+
     def version_3
       Que::Migrations.migrate! version: 3
       yield
