@@ -29,6 +29,7 @@ module Que
   require_relative 'que/utils/logging'
   require_relative 'que/utils/middleware'
   require_relative 'que/utils/queue_management'
+  require_relative 'que/utils/ruby2_keywords'
   require_relative 'que/utils/transactions'
 
   require_relative 'que/connection'
@@ -60,6 +61,7 @@ module Que
     include Utils::Logging
     include Utils::Middleware
     include Utils::QueueManagement
+    include Utils::Ruby2Keywords
     include Utils::Transactions
 
     extend Forwardable
