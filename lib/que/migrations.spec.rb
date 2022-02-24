@@ -227,6 +227,7 @@ describe Que::Migrations do
     end
 
     it "when migrating down should remove finished and expired jobs so that they aren't run repeatedly" do
+      Que::Migrations.migrate!(version: Que::Migrations::CURRENT_VERSION)
       a, b, c = 3.times.map { Que::Job.enqueue.que_attrs[:id] }
 
       jobs_dataset.where(id: a).update(finished_at: Time.now)
@@ -237,6 +238,8 @@ describe Que::Migrations do
       end
 
       assert_equal [c], jobs_dataset.select_map(:id)
+
+      Que::Migrations.migrate!(version: Que::Migrations::CURRENT_VERSION)
     end
   end
 end

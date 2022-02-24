@@ -1,0 +1,2 @@
+ALTER TABLE que_jobs
+  ADD COLUMN kwargs JSONB NOT NULL DEFAULT '{}';
