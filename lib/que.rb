@@ -51,6 +51,8 @@ module Que
   class << self
     attr_writer :default_queue
   end
+  
+  self.job_schema_version = 6
 
   self.default_queue = nil
 
