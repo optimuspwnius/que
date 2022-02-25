@@ -9,7 +9,10 @@ module Que
   TIME_REGEX       = /\A\d{4}\-\d{2}\-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}Z\z/
   CONFIG_MUTEX     = Mutex.new
   MAXIMUM_PRIORITY = 32767
-
+  def job_schema_version
+    6
+  end
+  
   class Error < StandardError; end
 
   # Store SQL strings frozen, with squashed whitespace so logs read better.
