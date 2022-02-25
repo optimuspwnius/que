@@ -118,7 +118,7 @@ module Que
     # generally.
     attr_writer :pool
   end
-  self.job_schema_version = 6
+            
   # Set config defaults.
   self.use_prepared_statements = true
 end
