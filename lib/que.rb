@@ -69,7 +69,9 @@ module Que
     include Utils::Transactions
 
     extend Forwardable
-
+    def job_schema_version
+      6
+    end
     # Copy some commonly-used methods here, for convenience.
     def_delegators :pool, :execute, :checkout, :in_transaction?
     def_delegators Job, :enqueue, :run_synchronously, :run_synchronously=
